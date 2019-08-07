@@ -4,7 +4,7 @@
     <div class="title">sanmoku_narabe</div>
     <Game />
 
-    <b-button variant="primary">Primary Button</b-button>
+    <b-button class="primary">Reset this game..</b-button>
   </div>
 </template>
 
@@ -35,6 +35,7 @@ export default {
     word-spacing: 5px;
     padding-bottom: 15px;
   }
+
 }
 
 

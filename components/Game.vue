@@ -24,17 +24,25 @@
 export default {
   data() {
     return { 
-      games: ["◻️","◻️","◻️","◻️","◻️","◻️","◻️","◻️","◻️"]
+      games: ["","","","","","","","",""]
     }
   }
 }
 </script>
 <style lang="scss" scoped>
 .gameboard {
-  margin: 30px auto 0 auto;
-  max-width: 450px;
+  margin: 30px auto 15px auto;
+  max-width: 420px;
   .row div {
     height: 15vh;
+    padding: 3px;
+    background-color: #badfdb;
+    background-clip : content-box;
+    border-radius: 10px;
+  }
+  .row div:hover {
+    background-color: #abceca;
+    background-clip : content-box;
   }
 }
 
