@@ -1,15 +1,24 @@
 <template>
   <div class="container">
-    <div>
+    <h1 class="subtitle">sanmoku_narabe</h1>
 
-      <logo />
-      <h1 class="title">nuxt2</h1>
-      <h2 class="subtitle">Counter : {{ counter }}</h2>
+     <h1 class="h1">Nuxt Bootstrap</h1>
+    <b-button variant="primary">Primary Button</b-button>
 
-      <div class="links">
-        <a target="_blank" class="button--green" v-on:click="counter++">Add</a>
-        <a target="_blank" class="button--grey" v-on:click="counter = 0">Clear</a>
-      </div>
+    <div class="row">
+      <div class="col-4">{{ games[0] }}</div>
+      <div class="col-4">{{ games[1] }}</div>
+      <div class="col-4">{{ games[2] }}</div>
+    </div>
+    <div class="row">
+      <div class="col-4">{{ games[3] }}</div>
+      <div class="col-4">{{ games[4] }}</div>
+      <div class="col-4">{{ games[5] }}</div>
+    </div>
+    <div class="row">
+      <div class="col-4">{{ games[6] }}</div>
+      <div class="col-4">{{ games[7] }}</div>
+      <div class="col-4">{{ games[8] }}</div>
     </div>
   </div>
 </template>
@@ -18,11 +27,10 @@
 import Logo from '~/components/Logo.vue'
 
 export default {
-  components: {
-    Logo
-  },
   data() {
-    return { counter: 0 }
+    return { 
+      games: ["◻️","◻️","◻️","◻️","◻️","◻️"]
+    }
   }
 }
 </script>
