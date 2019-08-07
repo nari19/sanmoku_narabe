@@ -20,13 +20,13 @@
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex'
+import { mapState, mapMutations, mapActions } from 'vuex'
 
 export default {
    computed: {
-    games () {
-      return this.$store.state.games
-    }
+     ...mapState({
+       games: state => state.games,
+     })
   }
 }
 </script>
