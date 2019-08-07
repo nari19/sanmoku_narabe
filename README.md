@@ -29,3 +29,4 @@ For detailed explanation on how things work, checkout [Nuxt.js docs](https://nux
 |test0|カウンターアプリ|
 |test1|ゲーム盤|
 |test2|右上にメッセージ|
+|test3|store記述|

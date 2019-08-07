@@ -1,3 +1,5 @@
-export default {
-    count: []
+export const state = () => {
+    return {
+        games: ["","","","","","","","",""]
+    }
 }
