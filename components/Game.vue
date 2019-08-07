@@ -1,19 +1,9 @@
 <template>
   <div class="gameboard">
-    <div class="row">
-      <div class="col-4">{{ games[0] }}</div>
-      <div class="col-4">{{ games[1] }}</div>
-      <div class="col-4">{{ games[2] }}</div>
-    </div>
-    <div class="row">
-      <div class="col-4">{{ games[3] }}</div>
-      <div class="col-4">{{ games[4] }}</div>
-      <div class="col-4">{{ games[5] }}</div>
-    </div>
-    <div class="row">
-      <div class="col-4">{{ games[6] }}</div>
-      <div class="col-4">{{ games[7] }}</div>
-      <div class="col-4">{{ games[8] }}</div>
+    <div class="row" v-for="n in [0,1,2]" :key="n">
+      <div class="col-4 panel">{{ games[n*3] }}</div>
+      <div class="col-4 panel">{{ games[n*3+1] }}</div>
+      <div class="col-4 panel">{{ games[n*3+2] }}</div>
     </div>
 
   </div>
@@ -26,7 +16,16 @@ export default {
    computed: {
      ...mapState({
        games: state => state.games,
-     })
+   }),
+   methods: {
+     ...mapMutations([
+       'change'
+     ]),
+     ...mapActions([
+
+     ])
+   }
+
   }
 }
 </script>

@@ -1,9 +1,9 @@
 export const state = () => ({
-    games: ["","","","","","","","",""]
+    games: ["1","2","3","4","5","6","7","8","9"]
 })
 
 export const mutations = {
-    increment (state) {
-        state.counter++
+    change (state, n) {
+        state.games[n] = "●"
     }
 }
