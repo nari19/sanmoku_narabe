@@ -27,4 +27,5 @@ For detailed explanation on how things work, checkout [Nuxt.js docs](https://nux
 |ブランチ名|概要|
 | - | - |
 |test0|カウンターアプリ|
-|test1|三目並べ|
+|test1|ゲーム盤|
+|test2|右上にメッセージ|
