@@ -1,4 +1,4 @@
-# Sanmoku_narabe
+# sanmoku_narabe
 
 > My groovy Nuxt.js project
 
