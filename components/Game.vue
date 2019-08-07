@@ -1,7 +1,6 @@
 <template>
   <div class="gameboard">
-    <div class="col-4">{{ games }}</div>
-    <!-- <div class="row">
+    <div class="row">
       <div class="col-4">{{ games[0] }}</div>
       <div class="col-4">{{ games[1] }}</div>
       <div class="col-4">{{ games[2] }}</div>
@@ -15,12 +14,14 @@
       <div class="col-4">{{ games[6] }}</div>
       <div class="col-4">{{ games[7] }}</div>
       <div class="col-4">{{ games[8] }}</div>
-    </div> -->
+    </div>
 
   </div>
 </template>
 
 <script>
+import { mapState, mapActions } from 'vuex'
+
 export default {
    computed: {
     games () {
