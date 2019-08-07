@@ -10,9 +10,6 @@ const store = () => new Vuex.Store({
     state,
     mutations,
     actions,
-    modules :{
-        'counter': counter,
-    }
 })
 
 export default store

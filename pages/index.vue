@@ -4,17 +4,11 @@
 
       <logo />
       <h1 class="title">nuxt2</h1>
-      <h2 class="subtitle">Counter : </h2>
+      <h2 class="subtitle">Counter : {{ counter }}</h2>
 
       <div class="links">
-        <a
-          target="_blank"
-          class="button--green"
-        >Add</a>
-        <a
-          target="_blank"
-          class="button--grey"
-        >Clear</a>
+        <a target="_blank" class="button--green" v-on:click="counter++">Add</a>
+        <a target="_blank" class="button--grey" v-on:click="counter = 0">Clear</a>
       </div>
     </div>
   </div>
@@ -26,6 +20,9 @@ import Logo from '~/components/Logo.vue'
 export default {
   components: {
     Logo
+  },
+  data() {
+    return { counter: 0 }
   }
 }
 </script>
