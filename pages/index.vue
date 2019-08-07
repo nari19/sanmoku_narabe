@@ -1,9 +1,7 @@
 <template>
   <div class="container">
-    <h1 class="subtitle">sanmoku_narabe</h1>
 
-     <h1 class="h1">Nuxt Bootstrap</h1>
-    <b-button variant="primary">Primary Button</b-button>
+    <div class="subtitle">sanmoku_narabe</div>
 
     <div class="row">
       <div class="col-4">{{ games[0] }}</div>
@@ -20,16 +18,19 @@
       <div class="col-4">{{ games[7] }}</div>
       <div class="col-4">{{ games[8] }}</div>
     </div>
+
+
+    <b-button variant="primary" class="pull-right">Primary Button</b-button>
   </div>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
+import Game from '~/components/Game.vue'
 
 export default {
   data() {
     return { 
-      games: ["◻️","◻️","◻️","◻️","◻️","◻️"]
+      games: ["◻️","◻️","◻️","◻️","◻️","◻️","◻️","◻️","◻️"]
     }
   }
 }
@@ -39,7 +40,8 @@ export default {
 .container {
   margin: 0 auto;
   min-height: 100vh;
-  display: flex;
+  /* display: flex; */
+  padding-top: 10vh;
   justify-content: center;
   align-items: center;
   text-align: center;
