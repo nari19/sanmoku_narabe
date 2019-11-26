@@ -1,8 +1,8 @@
 <template>
   <div class="gameboard">
 
-    <div class="row" v-for="row in games" :key="row">
-      <div class="col-4 panel" v-for="state in row" :key="state">
+    <div class="row" v-for="(row, rowsIndex) in games" :key="row">
+      <div class="col-4 panel" v-for="(state, colsIndex) in row" @click="onSelect(rowsIndex, colsIndex)" :key="state">
         <div style="color: #6c757d;" v-if="state==1">○</div>
         <div style="color: #6c757d;" v-if="state==2">×</div>
       </div>
@@ -22,6 +22,9 @@ export default {
      })
    },
    methods: {
+     onSelect: function(rowsIndex, colsIndex) {
+       alert(`${rowsIndex}, ${colsIndex}`)
+     },
      ...mapMutations([
        'change'
      ]),
