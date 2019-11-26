@@ -3,8 +3,8 @@
 
     <div class="row" v-for="row in games" :key="row">
       <div class="col-4 panel" v-for="state in row" :key="state">
-        <div v-if="state==1">◯</div>
-        <div v-if="state==2">×</div>
+        <div style="color: #6c757d;" v-if="state==1">○</div>
+        <div style="color: #6c757d;" v-if="state==2">×</div>
       </div>
     </div>
 
@@ -41,10 +41,16 @@ export default {
     background-color: #badfdb;
     background-clip : content-box;
     border-radius: 10px;
+    cursor: pointer;
   }
   .panel:hover {
     background-color: #abceca;
     background-clip : content-box;
+  }
+  .panel div {
+    position: relative;
+    font-size:8.2vh;
+    top: 0.7vh;
   }
 }
 
