@@ -1,9 +1,16 @@
 <template>
   <div class="gameboard">
-    <div class="row" v-for="n in [0,1,2]" :key="n">
+    <!-- <div class="row" v-for="n in [0,1,2]" :key="n">
       <div class="col-4 panel" @click="change(n*3)">{{ games[n*3] }}</div>
       <div class="col-4 panel">{{ games[n*3+1] }}</div>
       <div class="col-4 panel">{{ games[n*3+2] }}</div>
+    </div> -->
+
+    <div class="row" v-for="row in games" :key="row">
+      <div class="col-4 panel" v-for="state in row" :key="state">
+        <div v-if="state==1">◯</div>
+        <div v-if="state==2">×</div>
+      </div>
     </div>
 
   </div>
@@ -34,14 +41,14 @@ export default {
 .gameboard {
   margin: 30px auto 15px auto;
   max-width: 420px;
-  .row div {
+  .panel {
     height: 15vh;
     padding: 3px;
     background-color: #badfdb;
     background-clip : content-box;
     border-radius: 10px;
   }
-  .row div:hover {
+  .panel:hover {
     background-color: #abceca;
     background-clip : content-box;
   }
