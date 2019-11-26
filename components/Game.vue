@@ -1,10 +1,5 @@
 <template>
   <div class="gameboard">
-    <!-- <div class="row" v-for="n in [0,1,2]" :key="n">
-      <div class="col-4 panel" @click="change(n*3)">{{ games[n*3] }}</div>
-      <div class="col-4 panel">{{ games[n*3+1] }}</div>
-      <div class="col-4 panel">{{ games[n*3+2] }}</div>
-    </div> -->
 
     <div class="row" v-for="row in games" :key="row">
       <div class="col-4 panel" v-for="state in row" :key="state">
@@ -24,7 +19,8 @@ export default {
    computed: {
      ...mapState({
        games: state => state.games,
-   }),
+     })
+   },
    methods: {
      ...mapMutations([
        'change'
@@ -33,9 +29,7 @@ export default {
 
      ])
    }
-
   }
-}
 </script>
 <style lang="scss" scoped>
 .gameboard {

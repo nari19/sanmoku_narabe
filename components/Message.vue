@@ -1,12 +1,28 @@
 <template>
     <div class="message">
-        <p>●のターン</p>
+        <p v-if="playerId==1">◯のターン</p>
+        <p v-if="playerId==2">×のターン</p>
     </div>
 </template>
 
 <script>
+import { mapState, mapMutations, mapActions } from 'vuex'
+
 export default {
-    
+    name: 'Message',
+    computed: {
+        ...mapState({
+            playerId: state => state.playerId,
+        })
+    },
+    methods: {
+     ...mapMutations([
+       'change'
+     ]),
+     ...mapActions([
+
+     ])
+   }
 }
 </script>
 
