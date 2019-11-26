@@ -3,7 +3,7 @@ export const state = () => ({
 })
 
 export const mutations = {
-    change (state, n) {
+    change(state, n) {
         state.games[n] = "●"
     }
 }
