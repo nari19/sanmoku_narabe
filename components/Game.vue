@@ -3,7 +3,7 @@
 
     <div class="row" v-for="(row, rowsIndex) in games" :key="row">
       <div class="col-4 panel" v-for="(state, colsIndex) in row" 
-                               @click="onSelect(rowsIndex, colsIndex)" :key="state">
+          @click="onSelect({rows: rowsIndex, cols: colsIndex})" :key="state">
         <div v-if="state==1">○</div>
         <div  v-if="state==2">×</div>
       </div>

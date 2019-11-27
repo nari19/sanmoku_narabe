@@ -4,13 +4,10 @@ export const state = () => ({
 })
 
 export const mutations = {
-    onSelect(state, rowsIndex, colsIndex) {
-        if(state.games[rowsIndex][colsIndex] != -1) {
-            alert(rowsIndex, colsIndex);
-            // alert('そのマスは、すでに選択されています！');
-        } else {
+    onSelect(state, index) {
+        if(state.games[index.rows][index.cols] == -1) {
             let states = JSON.parse(JSON.stringify(state.games))
-            states[rowsIndex][colsIndex] = state.playerId;
+            states[index.rows][index.cols] = state.playerId;
             state.games = states;
             state.playerId = (state.playerId == 1) ? 2 : 1;
         }
