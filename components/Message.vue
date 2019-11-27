@@ -16,12 +16,8 @@ export default {
         })
     },
     methods: {
-     ...mapMutations([
-       'change'
-     ]),
-     ...mapActions([
-
-     ])
+     ...mapMutations([]),
+     ...mapActions([])
    }
 }
 </script>

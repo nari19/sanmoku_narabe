@@ -36,10 +36,5 @@ export default {
     word-spacing: 5px;
     padding-bottom: 15px;
   }
-
-
 }
-
-
-
 </style>
