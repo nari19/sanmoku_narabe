@@ -23,7 +23,17 @@ export default {
    },
    methods: {
      onSelect: function(rowsIndex, colsIndex) {
-       alert(`${rowsIndex}, ${colsIndex}`)
+       if (this.games[rowsIndex][colsIndex] != -1) {
+         alert("aaaa")
+       } else {
+         alert("bbbb")
+         let states = JSON.parse(JSON.stringify(this.games))
+         states[rowIndex][colsIndex] = this.playerId;
+         this.states = states;
+         this.playerId = (this.playerId == 1) ? 2 : 1;
+       }
+
+
      },
      ...mapMutations([
        'change'
