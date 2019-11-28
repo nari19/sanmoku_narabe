@@ -9,9 +9,6 @@
       </div>
     </div>
 
-    {{ games}}
-    {{ playerId }}
-
   </div>
 </template>
 
