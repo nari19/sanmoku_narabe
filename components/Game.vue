@@ -9,9 +9,6 @@
       </div>
     </div>
 
-    {{ games}}
-    {{ playerId }}
-
   </div>
 </template>
 
@@ -51,7 +48,6 @@ export default {
   }
   .panel:hover {
     background-color: #abceca;
-    background-clip : content-box;
   }
   .panel div {
     position: relative;

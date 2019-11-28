@@ -1,6 +1,7 @@
 export const state = () => ({
-    games: [[1, 1, 2], [1, 2, -1], [2, -2, 1]],
-    playerId: 1
+    games: [[-1, -1, -1], [-1, -1, -1], [-1, -1, -1]],
+    playerId: 1,
+    situation: 0
 })
 
 export const mutations = {
