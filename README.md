@@ -20,14 +20,3 @@ $ npm run generate
 ```
 
 For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
-
-
-## Branch
-
-|ブランチ名|概要|
-| - | - |
-|test0|カウンターアプリ|
-|test1|ゲーム盤|
-|test2|右上にメッセージ|
-|test3|store記述|
-|test4|パネルクリック処理|
