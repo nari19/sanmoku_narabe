@@ -12,19 +12,19 @@ export const actions = {
             states[index.rows][index.cols] = this.state.playerId;
           　context.commit('changePanel', states)
 
-            var winnerId = getWinnerId();
+            const winnerId = getWinnerId();
             if(winnerId != -1) {
-                games = [ [-1, -1, -1], [-1, -1, -1], [-1, -1, -1] ];
-                playerIds = { 1: '○', 2: '×' };
-                alert(playerIds[winnerId] +' さんの勝ちです。おめでとうございます！');
+          　    context.commit('finishGame')
+                alert((winnerId==1 ? '○' : '×') + ' さんの勝ちです。おめでとうございます！');
             }
         }    
+
 
         function getWinnerId() {
             for(let i = 0; i < 3 ; i++){
                 // 横の列
                 let row = games[i];
-                if(isStatesFilled(row)) { return row[0];}
+                if(isStatesFilled(row)) { return row[0]; }
                 // 縦の列
                 let col = [ games[0][i], games[1][i], games[2][i] ];
                 if(isStatesFilled(col)) { return games[0][i]; }
@@ -35,6 +35,7 @@ export const actions = {
             if(isStatesFilled(skew1)) { return games[0][0]; }
             var skew2 = [ games[0][2], games[1][1], games[2][0] ];
             if(isStatesFilled(skew2)) { return games[0][2]; }
+
             return -1;
         }
 
@@ -45,8 +46,11 @@ export const actions = {
 }
 
 export const mutations = {
-    changePanel(state, index) {
-            state.games = index;
+    changePanel(state, states) {
+            state.games = states;
             state.playerId = (state.playerId == 1) ? 2 : 1;
+    },
+    finishGame(state) {
+        state.games = [[-1, -1, -1], [-1, -1, -1], [-1, -1, -1]];
     }
 }
