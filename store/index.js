@@ -10,11 +10,11 @@ export const actions = {
 
             let states = JSON.parse(JSON.stringify(games))
             states[index.rows][index.cols] = this.state.playerId;
-          　context.commit('changePanel', states)
+          　context.commit('changePanel', states);
 
             const winnerId = getWinnerId();
             if(winnerId != -1) {
-          　    context.commit('finishGame')
+          　    context.commit('finishGame');
                 alert((winnerId==1 ? '○' : '×') + ' さんの勝ちです。おめでとうございます！');
             }
         }    
