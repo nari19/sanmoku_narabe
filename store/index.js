@@ -11,6 +11,7 @@ export const actions = {
             let states = JSON.parse(JSON.stringify(games))
             states[index.rows][index.cols] = this.state.playerId;
           　context.commit('changePanel', states);
+            console.log("after" + games);
 
             const winnerId = getWinnerId();
             if(winnerId != -1) {
@@ -49,6 +50,7 @@ export const mutations = {
     changePanel(state, states) {
             state.games = states;
             state.playerId = (state.playerId == 1) ? 2 : 1;
+            console.log("before" + state.games)
     },
     finishGame(state) {
         state.games = [[-1, -1, -1], [-1, -1, -1], [-1, -1, -1]];
