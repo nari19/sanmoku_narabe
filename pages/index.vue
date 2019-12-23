@@ -1,22 +1,29 @@
 <template>
   <div class="container">
+
     <Message />
 
     <div class="title">sanmoku_narabe</div>
     <Game />
-    <b-button class="primary">Reset this game..</b-button>
+    <b-button class="primary" @click="finishGame()">Reset this game..</b-button>
+
   </div>
 </template>
 
 <script>
 import Game from '~/components/Game.vue'
 import Message from '~/components/Message.vue'
+import { mapMutations } from 'vuex'
 
 export default {
   components: {
     Game,
     Message
-  }
+  },
+  computed: { },
+  methods: {
+    ...mapMutations([ 'finishGame' ])
+  },
 }
 </script>
 

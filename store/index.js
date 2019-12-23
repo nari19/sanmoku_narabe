@@ -6,19 +6,19 @@ export const state = () => ({
 export const actions = {
     onSelect(context, index) {
         const games = this.state.games;
-        if(games[index.rows][index.cols] == -1) {
+        const states = JSON.parse(JSON.stringify(games))
+        let winnerId = getWinnerId(states);
 
-            let states = JSON.parse(JSON.stringify(games))
+        if(games[index.rows][index.cols] == -1 && winnerId == -1) {
             states[index.rows][index.cols] = this.state.playerId;
-
-            // 同期処理が必要
-            const winnerId = getWinnerId(states);
             context.commit('changePanel', states);
+
+            winnerId = getWinnerId(states);
             if(winnerId != -1) {
-          　    context.commit('finishGame');
+                // context.commit('finishGame');
                 alert((winnerId==1 ? '○' : '×') + ' さんの勝ちです。おめでとうございます！');
             }
-        }    
+        }
 
 
         function getWinnerId(states) {
