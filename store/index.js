@@ -4,7 +4,7 @@ export const state = () => ({
 })
 
 export const actions = {
-    async onSelect(context, index) {
+    onSelect(context, index) {
         const games = this.state.games;
         if(games[index.rows][index.cols] == -1) {
 
@@ -12,9 +12,8 @@ export const actions = {
             states[index.rows][index.cols] = this.state.playerId;
 
             // 同期処理が必要
-          　await context.commit('changePanel', states);
-            const winnerId = getWinnerId();
-
+            const winnerId = getWinnerId(states);
+            context.commit('changePanel', states);
             if(winnerId != -1) {
           　    context.commit('finishGame');
                 alert((winnerId==1 ? '○' : '×') + ' さんの勝ちです。おめでとうございます！');
@@ -22,21 +21,21 @@ export const actions = {
         }    
 
 
-        function getWinnerId() {
+        function getWinnerId(states) {
             for(let i = 0; i < 3 ; i++){
                 // 横の列
-                let row = games[i];
+                let row = states[i];
                 if(isStatesFilled(row)) { return row[0]; }
                 // 縦の列
-                let col = [ games[0][i], games[1][i], games[2][i] ];
-                if(isStatesFilled(col)) { return games[0][i]; }
+                let col = [ states[0][i], states[1][i], states[2][i] ];
+                if(isStatesFilled(col)) { return states[0][i]; }
             }
 
             // ななめ
-            let skew1 = [ games[0][0], games[1][1], games[2][2] ];
-            if(isStatesFilled(skew1)) { return games[0][0]; }
-            var skew2 = [ games[0][2], games[1][1], games[2][0] ];
-            if(isStatesFilled(skew2)) { return games[0][2]; }
+            let skew1 = [ states[0][0], states[1][1], states[2][2] ];
+            if(isStatesFilled(skew1)) { return states[0][0]; }
+            var skew2 = [ states[0][2], states[1][1], states[2][0] ];
+            if(isStatesFilled(skew2)) { return states[0][2]; }
 
             return -1;
         }
