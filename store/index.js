@@ -7,14 +7,15 @@ export const actions = {
     onSelect(context, index) {
         const games = this.state.games;
         const states = JSON.parse(JSON.stringify(games))
-        const winnerId = getWinnerId(states);
+        let winnerId = getWinnerId(states);
 
         if(games[index.rows][index.cols] == -1 && winnerId == -1) {
-
             states[index.rows][index.cols] = this.state.playerId;
             context.commit('changePanel', states);
+
+            winnerId = getWinnerId(states);
             if(winnerId != -1) {
-        //   　    context.commit('finishGame');
+                // context.commit('finishGame');
                 alert((winnerId==1 ? '○' : '×') + ' さんの勝ちです。おめでとうございます！');
             }
         }
