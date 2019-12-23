@@ -24,11 +24,8 @@ export default {
      })
    },
    methods: {
-     ...mapMutations([
-       'onSelect'
-     ]),
      ...mapActions([
-
+       'onSelect'
      ])
    }
   }
