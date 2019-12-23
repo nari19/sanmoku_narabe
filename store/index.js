@@ -4,16 +4,17 @@ export const state = () => ({
 })
 
 export const actions = {
-    onSelect(context, index) {
+    async onSelect(context, index) {
         const games = this.state.games;
         if(games[index.rows][index.cols] == -1) {
 
             let states = JSON.parse(JSON.stringify(games))
             states[index.rows][index.cols] = this.state.playerId;
-          　context.commit('changePanel', states);
-            console.log("after" + games);
 
+            // 同期処理が必要
+          　await context.commit('changePanel', states);
             const winnerId = getWinnerId();
+
             if(winnerId != -1) {
           　    context.commit('finishGame');
                 alert((winnerId==1 ? '○' : '×') + ' さんの勝ちです。おめでとうございます！');
@@ -50,7 +51,6 @@ export const mutations = {
     changePanel(state, states) {
             state.games = states;
             state.playerId = (state.playerId == 1) ? 2 : 1;
-            console.log("before" + state.games)
     },
     finishGame(state) {
         state.games = [[-1, -1, -1], [-1, -1, -1], [-1, -1, -1]];
