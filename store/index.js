@@ -15,8 +15,10 @@ export const actions = {
 
             winnerId = getWinnerId(states);
             if(winnerId != -1) {
-                // context.commit('finishGame');
                 alert((winnerId==1 ? '○' : '×') + ' さんの勝ちです。おめでとうございます！');
+            } else {
+                const aryResult = Array.prototype.concat.apply([], states);
+                if(aryResult.every(s => s!=-1)) { alert('引き分けです'); }
             }
         }
 
