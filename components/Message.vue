@@ -1,7 +1,7 @@
 <template>
     <div class="message">
-        <p v-if="playerId==1">◯のターン</p>
-        <p v-if="playerId==2">×のターン</p>
+        <p v-if="message==''">{{ playerId==1 ? '○' : '×' }} Turn</p>
+        <p v-else>{{ message }}</p>
     </div>
 </template>
 
@@ -13,6 +13,7 @@ export default {
     computed: {
         ...mapState({
             playerId: state => state.playerId,
+            message: state => state.message
         })
     },
     methods: {

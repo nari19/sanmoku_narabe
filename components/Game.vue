@@ -19,8 +19,7 @@ export default {
    name: 'Game',
    computed: {
      ...mapState({
-       games: state => state.games,
-       playerId: state => state.playerId
+       games: state => state.games
      })
    },
    methods: {
