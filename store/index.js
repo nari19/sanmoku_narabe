@@ -1,6 +1,7 @@
 export const state = () => ({
     games: [[-1, -1, -1], [-1, -1, -1], [-1, -1, -1]],
-    playerId: 1
+    playerId: 1,
+    message: ''
 })
 
 export const actions = {
@@ -15,28 +16,24 @@ export const actions = {
 
             winnerId = getWinnerId(states);
             if(winnerId != -1) {
-                alert((winnerId==1 ? '○' : '×') + ' さんの勝ちです。おめでとうございます！');
+                context.commit('updateMessagee', (winnerId==1 ? 0 : 1));
             } else {
                 const aryResult = Array.prototype.concat.apply([], states);
-                if(aryResult.every(s => s!=-1)) { alert('引き分けです'); }
+                if(aryResult.every(s => s!=-1)) { context.commit('updateMessagee', 2); }
             }
         }
 
-
         function getWinnerId(states) {
             for(let i = 0; i < 3 ; i++){
-                // 横の列
-                let row = states[i];
+                const row = states[i];
                 if(isStatesFilled(row)) { return row[0]; }
-                // 縦の列
-                let col = [ states[0][i], states[1][i], states[2][i] ];
+                const col = [ states[0][i], states[1][i], states[2][i] ];
                 if(isStatesFilled(col)) { return states[0][i]; }
             }
 
-            // ななめ
-            let skew1 = [ states[0][0], states[1][1], states[2][2] ];
+            const skew1 = [ states[0][0], states[1][1], states[2][2] ];
             if(isStatesFilled(skew1)) { return states[0][0]; }
-            var skew2 = [ states[0][2], states[1][1], states[2][0] ];
+            const skew2 = [ states[0][2], states[1][1], states[2][0] ];
             if(isStatesFilled(skew2)) { return states[0][2]; }
 
             return -1;
@@ -55,5 +52,9 @@ export const mutations = {
     },
     finishGame(state) {
         state.games = [[-1, -1, -1], [-1, -1, -1], [-1, -1, -1]];
+        state.message = '';
+    },
+    updateMessagee(state, num) {
+        state.message = (num==0 ? '○ wins!!' : (num==1 ? '× wins!!' : 'draw...'));
     }
 }
