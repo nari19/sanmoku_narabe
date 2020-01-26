@@ -1,5 +1,13 @@
 # sanmoku_narabe
 
+Nuxtのまるばつゲーム
+
+url: https://nari19.github.io/sanmoku_narabe/
+
+
+![アプリ画面](./assets/images/Top.png)
+
+
 > My groovy Nuxt.js project
 
 ## Build Setup
@@ -17,6 +25,10 @@ $ npm run start
 
 # generate static project
 $ npm run generate
+
+# gh-pagesブランチに自動的にdistファイルをコミット&プッシュ
+# https://upd.world/nuxtjs-deploy-gh-pages/
+$ npm run deploy
 ```
 
 For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
