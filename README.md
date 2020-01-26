@@ -20,3 +20,10 @@ $ npm run generate
 ```
 
 For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
+
+
+### memo
+
+- githubpages
+
+    https://upd.world/nuxtjs-deploy-gh-pages/
