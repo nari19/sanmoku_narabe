@@ -21,6 +21,6 @@
     "nodemon": "^1.18.9",
     "push-dir": "^0.4.1",
     "sass-loader": "^7.1.0",
-    "serialize-javascript": ">=2.1.1"
+    "serialize-javascript": ">=3.1.0"
   }
 }
